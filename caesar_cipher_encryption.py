@@ -13,17 +13,17 @@ shift = int(input("Type the shift number:\n"))
     #cipher_text = "mjqqt"
     #print output: "The encoded text is mjqqt"
 
-
 def encrypt(secret_text, user_shift):
   encrypted_text = ""
   for letter in text:
     position = alphabet.index(letter)
     encrypted_position = position + shift
+    # accounting for bug issue when encountering 'z'.
+    if encrypted_position > 25:
+        encrypted_position = encrypted_position - 26
     encrypted_letter = alphabet[encrypted_position]
     encrypted_text += encrypted_letter
   print(f'The encoded text is {encrypted_text}')
-
-
 
     ##HINT: How do you get the index of an item in a list:
     #https://stackoverflow.com/questions/176918/finding-the-index-of-an-item-in-a-list
