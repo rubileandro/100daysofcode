@@ -9,6 +9,7 @@ def caesar(start_text, shift_amount, cipher_direction):
     shift_amount = shift_amount % 26
   for char in start_text:
     #TODO-3: What happens if the user enters a number/symbol/space?
+    if char.isalpha():
 
     #Can you fix the code to keep the number/symbol/space when the text is encoded/decoded?
 
@@ -16,9 +17,11 @@ def caesar(start_text, shift_amount, cipher_direction):
     #end_text = "•••• •• •• 3"
 
 
-    position = alphabet.index(char)
-    new_position = position + shift_amount
-    end_text += alphabet[new_position]
+      position = alphabet.index(char)
+      new_position = position + shift_amount
+      end_text += alphabet[new_position]
+    else:
+      end_text += char
     
   print(f"Here's the {cipher_direction}d result: {end_text}")
 
@@ -40,3 +43,9 @@ shift = int(input("Type the shift number:\n"))
 #Hint: Think about how you can use the modulus (%).
 
 caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+# continue_prompt = input('Type "yes" to go again. Otherwise type "no" \n').lower()
+# while continue_prompt == 'yes':
+#   caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+
+# else:
+#   print('Thank you for using caesar cipher. Goodbye.')
