@@ -14,9 +14,9 @@ travel_log = [
 
 #TODO: Write the function that will allow new countries
 #to be added to the travel_log. 👇
-def add_new_country(country_name, no_visits, cities_visit):
+def add_new_country((country_name, no_visits, cities_visit):
     new_country = {"country": country_name, "visits": no_visits, "cities": cities_visit,}
-    travel_log.append(new_country)
+    travel_log.append(new_country))
 
 # #🚨 Do not change the code below
 add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
