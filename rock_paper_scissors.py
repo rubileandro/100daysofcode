@@ -26,44 +26,25 @@ scissors = '''
       (____)
 ---.__(___)
 '''
+game_images = [rock, paper, scissors]
 
-#Write your code below this line 👇
-
-# Instruction and input 
-person_choice = input('What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n')
-
-# Convert str. to int.
-person_choice = int(person_choice)
-
-# Random chocie 
-computer_choice = random.randint(0,2)
-
-# Persons chocie
-if person_choice == 0:
-  print(rock)
-elif person_choice == 1:
-  print(paper)
+user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
+if user_choice >= 3 or user_choice < 0:
+  print("You typed an invalid number, you lose.")
 else:
-  print(scissors)
-
-# Computer's choice
-if computer_choice == 0:
-  print(rock)
-elif computer_choice == 1:
-  print(paper)
-else:
-  print(scissors)
-
-# Error message and game status
-if person_choice <0 or person_choice >2:
-  print('Your input must be 0, 1, 2')
-  if person_choice == computer_choice:
-    print('Draw')
-    if person_choice == 0 and computer_choice == 2:
-      print('You win!')
-      if person_choice == 2 and computer_choice == 1:
-        print('You win!')
-        if person_choice == 1 and computer_choice == 0:
-          print('You win!')
-    else:
-      print('You lose.')
+  print(game_images[user_choice])
+  
+  computer_choice = random.randint(0, 2)
+  print("Computer chose:")
+  print(game_images[computer_choice])
+  
+  if user_choice == 0 and computer_choice == 2:
+    print("You win!")
+  elif computer_choice == 0 and user_choice == 2:
+    print("You lose.")
+  elif computer_choice > user_choice:
+    print("You lose.")
+  elif user_choice > computer_choice:
+    print("You win!")
+  elif computer_choice == user_choice:
+    print("It's a draw! You win/lose.")
