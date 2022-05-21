@@ -9,38 +9,19 @@ nr_letters= int(input("How many letters would you like in your password?\n"))
 nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
 
-#Letters
-# Shuffle (reorganize the order of the list items)
-for letter in letters:
-  random.shuffle(letters)
-#print(letters) test
+#Eazy Level - Order not randomised:
+#e.g. 4 letter, 2 symbol, 2 number = JduE&!91
+random_letters = random.choices(letters, k=nr_letters)
+random_symbols = random.choices(symbols, k=nr_symbols)
+random_numbers = random.choices(numbers, k=nr_numbers)
 
-# get legnth from random list
-  chosen_letters = letters[:nr_letters]
-#print(chosen_letters) test
+combined = random_letters + random_symbols + random_numbers
+#password = ''.join(combined)
+#print(password)
 
-# Numbers
-for number in numbers:
-  random.shuffle(numbers)
-#print(numbers) test
+#Hard Level - Order of characters randomised:
+#e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
 
-  chosen_numbers = numbers[:nr_numbers]
-#print(chosen_numbers) test
-
-# Symbols
-for symbol in symbols:
-  random.shuffle(symbols)
-#print(symbols) test
-
-  chosen_symbols = symbols[:nr_symbols]
-#print(chosen_symbols) test
-
-# # combine random lists of user specified length from each category
-password = chosen_letters + chosen_numbers + chosen_symbols
-
-# Shuffle final str
-random.shuffle(password)
-# lst to str
-pass_str = ''.join(password)
-# print(password)
-print(f'Your passowrd is {pass_str}')
+random.shuffle(combined)
+password = ''.join(combined)
+print(password)
