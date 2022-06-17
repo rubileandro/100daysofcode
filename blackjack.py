@@ -18,9 +18,14 @@ print(computer_cards)
 
 # calculate score
 def calculate_score(list_of_cards):
-  if (11 and 10 in list_of_cards):
+  #if 11 in list_of_cards and 10 in list_of_cards and len(list_of_cards) == 2:
+  if sum(list_of_cards) == 21 and len(list_of_cards) ==2:
     return 0
+  if 11 in list_of_cards and sum(list_of_cards) > 21:
+      list_of_cards.remove(11)
+      list_of_cards.append(1)
   return sum(list_of_cards)
-  
+
 user_score = calculate_score(user_cards)
+
 print(user_score)
