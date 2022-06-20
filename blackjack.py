@@ -33,7 +33,8 @@ def compare(user_score, computer_score):
   else:
     return "You lose."
 
-def play_game():    
+def play_game():
+  print(logo)
   user_cards = []
   computer_cards = []
   end_of_game = False
