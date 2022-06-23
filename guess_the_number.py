@@ -16,5 +16,13 @@ print("Welcome to the number guessing game!")
 
 ANSWER = randint(1, 100)
 print(ANSWER)
-          
-guess = input("Guess a number between 1-100:")
+
+guess = int(input("Guess a number between 1-100:"))
+if guess > ANSWER:
+  print("Too high.")
+elif guess < ANSWER:
+  print("Too low.")
+elif guess == ANSWER:
+  print(f"You guessed the correct {ANSWER}, you win!")
+else:
+  print("Not a valid number.")
