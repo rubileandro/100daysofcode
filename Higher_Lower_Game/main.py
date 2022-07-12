@@ -15,14 +15,20 @@ print(logo)
 random_selection_a = random.choice(data)
 random_selection_b = random.choice(data)
 
+# follower count for comparison 
+a_followers = data[data.index(random_selection_a)]['follower_count']
+b_followers = data[data.index(random_selection_b)]['follower_count']
+
+
 # Compare A function
 def against_a():
-  random_selection = random.choice(data)
+  #random_selection_a = random.choice(data)
   # print(random_selection)
-  random_index = data.index(random_selection)
-  random_name = data[random_index]['name']
-  random_description = data[random_index]['description']
-  random_country = data[random_index]['country']
+  random_index_a = data.index(random_selection_a)
+  random_name = data[random_index_a]['name']
+  random_description = data[random_index_a]['description']
+  random_country = data[random_index_a]['country']
+  
   print(f"Compare A: {random_name}, a {random_description}, from {random_country}.")
   
 against_a()
@@ -36,14 +42,13 @@ print(vs)
 
 # Compare B function
 def against_b():
-  random_selection = random.choice(data)
+  #random_selection_b = random.choice(data)
   # print(random_selection)
-  random_index = data.index(random_selection)
-  random_name = data[random_index]['name']
-  random_description = data[random_index]['description']
-  random_country = data[random_index]['country']
-  # follower count for comparison 
-  b_followers = data[random_index]['follower_count']
+  random_index_b = data.index(random_selection_b)
+  random_name = data[random_index_b]['name']
+  random_description = data[random_index_b]['description']
+  random_country = data[random_index_b]['country']
+  
   print(f"Compare B: {random_name}, a {random_description}, from {random_country}.")
 
 
@@ -51,19 +56,22 @@ against_b()
 
 # TODO 5: ask user to select A or B
 player_choice = input("Who has more followers? Type 'A' or 'B': ").lower()
-print(player_choice)
+#print(player_choice)
 #against_b
   
 ## status of guess when right
 score = 0
 
 # Compare function
-def compare_ab(a, b_followers):
+def compare_ab(a_followers, b_followers):
   if b_followers > a_followers:
-    return 
-  elif b_followers 
+    print(f"B Wins with {b_followers}")
+  elif b_followers == a_followers:
+    print("No one Wins")
+  if b_followers < a_followers:
+    print(f"A Wins with {a_followers}")
 
-
+compare_ab(a_followers, b_followers)
 #print(f"You're right! Current score is: {score}")
 
 ## status of guess when wrong
