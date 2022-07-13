@@ -64,15 +64,35 @@ score = 0
 
 # Compare function
 def compare_ab(a_followers, b_followers):
-  if b_followers > a_followers:
-    print(f"B Wins with {b_followers}")
-  elif b_followers == a_followers:
-    print("No one Wins")
-  if b_followers < a_followers:
-    print(f"A Wins with {a_followers}")
+  if b_followers > a_followers and player_choice == "b":
+    print("Game Continues")
+  elif b_followers > a_followers and player_choice == "b":
+    print("Game Ends")
+  elif a_followers > b_followers and player_choice == "a":
+    print("Game Continues")
+  else:
+    print("Game Ends")
+    #code to stop game running 
 
 compare_ab(a_followers, b_followers)
 #print(f"You're right! Current score is: {score}")
+# determine if user selected entry with higher followers.
+# update compare_a with previous compare_b and generate new item for compare_b
+
+print(logo)
+
+def update_a():
+  pass
+
+update_a()
+
+print(vs)
+
+against_b()
+
+
+
+
 
 ## status of guess when wrong
 #print(f"Sorry, that's wrong. Final score is: {score}")
