@@ -60,35 +60,45 @@ player_choice = input("Who has more followers? Type 'A' or 'B': ").lower()
 #against_b
   
 ## status of guess when right
-score = 0
+#score = 0
+
+#CONTINUE FUNCTION update compare_a with previous compare_b and generate new item for compare_b
+def continue_game():
+  print(logo)
+
+  def update_a():
+    pass
+  
+  update_a()
+
+  print(vs)
+
+  against_b()
 
 # Compare function
+# determine if user selected entry with higher followers.
 def compare_ab(a_followers, b_followers):
+  score = 0
   if b_followers > a_followers and player_choice == "b":
+    score += 1
+    print(score)
     print("Game Continues")
+    continue_game()
   elif b_followers > a_followers and player_choice == "b":
-    print("Game Ends")
+    print(logo)
+    print(f"Sorry you are wrong. Your score is {score}")
   elif a_followers > b_followers and player_choice == "a":
+    score += 1
+    print(score)
     print("Game Continues")
   else:
-    print("Game Ends")
-    #code to stop game running 
+    print(logo)
+    print(f"Sorry you are wrong. Your score is {score}")
+   #code to stop game running 
 
 compare_ab(a_followers, b_followers)
-#print(f"You're right! Current score is: {score}")
-# determine if user selected entry with higher followers.
-# update compare_a with previous compare_b and generate new item for compare_b
 
-print(logo)
 
-def update_a():
-  pass
-
-update_a()
-
-print(vs)
-
-against_b()
 
 
 
