@@ -45,11 +45,11 @@ def against_b():
   #random_selection_b = random.choice(data)
   # print(random_selection)
   random_index_b = data.index(random_selection_b)
-  random_name = data[random_index_b]['name']
-  random_description = data[random_index_b]['description']
-  random_country = data[random_index_b]['country']
+  random_name_b = data[random_index_b]['name']
+  random_description_b = data[random_index_b]['description']
+  random_country_b = data[random_index_b]['country']
   
-  print(f"Compare B: {random_name}, a {random_description}, from {random_country}.")
+  print(f"Compare B: {random_name_b}, a {random_description_b}, from {random_country_b}.")
 
 
 against_b()
@@ -66,14 +66,31 @@ player_choice = input("Who has more followers? Type 'A' or 'B': ").lower()
 def continue_game():
   print(logo)
 
+  #calling the details from the previous B results
   def update_a():
-    pass
+   random_index_b = data.index(random_selection_b)
+   random_name_b = data[random_index_b]['name']
+   random_description_b = data[random_index_b]['description']
+   random_country_b = data[random_index_b]['country']
+  
+   print(f"You're correct. Compare A: {random_name_b}, a {random_description_b}, from {random_country_b}.")   
+    
   
   update_a()
 
   print(vs)
 
-  against_b()
+#calling new random B results
+  random_selection_new_b = random.choice(data)
+  def update_b():
+    random_index_b = data.index(random_selection_new_b)
+    random_name_b = data[random_index_b]['name']
+    random_description_b = data[random_index_b]['description'] 
+    random_country_b = data[random_index_b]['country']
+    
+    print(f"Compare B: {random_name_b}, a {random_description_b}, from {random_country_b}.")  
+
+  update_b()
 
 # Compare function
 # determine if user selected entry with higher followers.
@@ -81,22 +98,22 @@ def compare_ab(a_followers, b_followers):
   score = 0
   if b_followers > a_followers and player_choice == "b":
     score += 1
-    print(score)
-    print("Game Continues")
     continue_game()
   elif b_followers > a_followers and player_choice == "b":
     print(logo)
     print(f"Sorry you are wrong. Your score is {score}")
   elif a_followers > b_followers and player_choice == "a":
     score += 1
-    print(score)
-    print("Game Continues")
+    continue_game()
   else:
     print(logo)
     print(f"Sorry you are wrong. Your score is {score}")
    #code to stop game running 
 
 compare_ab(a_followers, b_followers)
+
+# while continue_game == True:
+#   continue_game()
 
 
 
