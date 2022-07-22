@@ -12,25 +12,27 @@ from game_data import data
 print(logo)
 
 ## Global variables?
-random_selection_a = random.choice(data)
-random_selection_b = random.choice(data)
+random_selection = random.choice(data)
+
+# format random selection
+def format(selection):
+  """Takes in the dictionary entries and return in readable format"""
+  random_index = data.index(random_selection)
+  random_name = data[random_index]['name']
+  random_description = data[random_index]['description']
+  random_country = data[random_index]['country']
+  return f"{random_name}, a {random_description}, from {random_country}."
 
 # follower count for comparison 
-a_followers = data[data.index(random_selection_a)]['follower_count']
-b_followers = data[data.index(random_selection_b)]['follower_count']
-
+a_followers = data[data.index(random_selection)]['follower_count']
+b_followers = data[data.index(random_selection)]['follower_count']
 
 # Compare A function
+
+
 def against_a():
-  #random_selection_a = random.choice(data)
-  # print(random_selection)
-  random_index_a = data.index(random_selection_a)
-  random_name = data[random_index_a]['name']
-  random_description = data[random_index_a]['description']
-  random_country = data[random_index_a]['country']
-  
-  print(f"Compare A: {random_name}, a {random_description}, from {random_country}.")
-  
+  random_a = random_selection
+  print(f"Compare A: {format(random_a)}")
 against_a()
 
 # TODO 2: print vs
@@ -42,16 +44,8 @@ print(vs)
 
 # Compare B function
 def against_b():
-  #random_selection_b = random.choice(data)
-  # print(random_selection)
-  random_index_b = data.index(random_selection_b)
-  random_name_b = data[random_index_b]['name']
-  random_description_b = data[random_index_b]['description']
-  random_country_b = data[random_index_b]['country']
-  
-  print(f"Compare B: {random_name_b}, a {random_description_b}, from {random_country_b}.")
-
-
+  random_b = random_selection
+  print(f"Against B: {format(random_b)}")
 against_b()
 
 # TODO 5: ask user to select A or B
@@ -92,8 +86,7 @@ def continue_game():
 
   update_b()
 
-# Compare function
-# determine if user selected entry with higher followers.
+# TODO 6: compare follower account from A and B and determine which is higher. If user's guess matches the result.....
 def compare_ab(a_followers, b_followers):
   score = 0
   if b_followers > a_followers and player_choice == "b":
@@ -115,21 +108,9 @@ compare_ab(a_followers, b_followers)
 # while continue_game == True:
 #   continue_game()
 
-
-
-
-
-
-
 ## status of guess when wrong
 #print(f"Sorry, that's wrong. Final score is: {score}")
-
-
 
 # TODO 4: select another random disctionary from list and print in formatted way under vs - assign B
 
 
-
-
-
-# TODO 6: compare follower account from A and B and determine which is higher. If user's guess matches the result.....
