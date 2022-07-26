@@ -29,3 +29,19 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
+
+
+# TODO: 1. Prompt user by asking "What would you like?"
+coffee_choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
+print(coffee_choice)
+
+if coffee_choice == "espresso":
+    pass
+elif coffee_choice == "latte":
+    pass
+elif coffee_choice == "cappuccino":
+    pass
+elif coffee_choice == "off":
+    exit()
+else:
+    print("That is not a valid option. Please choose from either: espresso, latte, or cappuccino. ")
