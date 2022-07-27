@@ -30,8 +30,23 @@ resources = {
     "coffee": 100,
 }
 
+# TODO 3. Print report. ✅
 
-# TODO: 1. Prompt user by asking "What would you like?"
+def report():
+    print("Coffee resources : ")
+    for i in resources:
+        print(i, resources[i])
+
+
+report()
+
+
+# TODO: 1. Prompt user by asking "What would you like?" ✅
+
+# TODO: 2. Turn off the Coffee Machine by entering "off” to the prompt.✅
+# if coffee_choice == "off":
+#     exit()
+
 coffee_choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
 print(coffee_choice)
 
@@ -43,5 +58,11 @@ elif coffee_choice == "cappuccino":
     pass
 elif coffee_choice == "off":
     exit()
+elif coffee_choice == "report":
+    report()
 else:
     print("That is not a valid option. Please choose from either: espresso, latte, or cappuccino. ")
+
+
+
+# TODO 4. Check resources sufficient?
