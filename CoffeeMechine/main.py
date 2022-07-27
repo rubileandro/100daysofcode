@@ -38,9 +38,6 @@ def report():
         print(i, resources[i])
 
 
-report()
-
-
 # TODO: 1. Prompt user by asking "What would you like?" ✅
 
 # TODO: 2. Turn off the Coffee Machine by entering "off” to the prompt.✅
@@ -62,7 +59,3 @@ elif coffee_choice == "report":
     report()
 else:
     print("That is not a valid option. Please choose from either: espresso, latte, or cappuccino. ")
-
-
-
-# TODO 4. Check resources sufficient?
