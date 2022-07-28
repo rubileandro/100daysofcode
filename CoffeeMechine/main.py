@@ -26,7 +26,7 @@ MENU = {
 
 resources = {
     "water": 300,
-    "milk": 200,
+    "milk": 20,
     "coffee": 100,
 }
 
@@ -44,7 +44,7 @@ def report():
 # if coffee_choice == "off":
 #     exit()
 
-coffee_choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
+coffee_choice = input("What would you like ☕️? (espresso/latte/cappuccino): ").lower()
 print(coffee_choice)
 
 if coffee_choice == "espresso":
@@ -59,3 +59,19 @@ elif coffee_choice == "report":
     report()
 else:
     print("That is not a valid option. Please choose from either: espresso, latte, or cappuccino. ")
+
+
+
+# TODO 4. Check resources sufficient?
+
+# TODO 4.1 When the user chooses a drink, the program should check if there are enough resources to make that drink.
+
+# TODO 4.2 E.g. if Latte requires 200ml water but there is only 100ml left in the machine. It should not continue to make the drink but print: “Sorry there is not enough water.”
+
+coffee_resources = (MENU[coffee_choice])
+print(coffee_resources)
+for i in coffee_resources["ingredients"]:
+    if coffee_resources["ingredients"][i] <= resources[i]:
+        print("ready")
+    else:
+        print(f"Sorry there is not enough {i}.")
