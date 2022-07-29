@@ -26,9 +26,10 @@ MENU = {
 
 resources = {
     "water": 300,
-    "milk": 20,
+    "milk": 200,
     "coffee": 100,
 }
+
 
 # TODO 3. Print report. ✅
 
@@ -68,10 +69,22 @@ else:
 
 # TODO 4.2 E.g. if Latte requires 200ml water but there is only 100ml left in the machine. It should not continue to make the drink but print: “Sorry there is not enough water.”
 
+# TODO 4.3 The same should happen if another resource is depleted, e.g. milk or coffee.
+
+enough_resources = True
+
 coffee_resources = (MENU[coffee_choice])
 print(coffee_resources)
 for i in coffee_resources["ingredients"]:
-    if coffee_resources["ingredients"][i] <= resources[i]:
-        print("ready")
-    else:
+    if coffee_resources["ingredients"][i] > resources[i]:
+        enough_resources = False
         print(f"Sorry there is not enough {i}.")
+
+
+
+# TODO 5. Process coins.
+
+# TODO 5.1 If there are sufficient resources to make the drink selected, then the program should prompt the user to insert coins.
+cost_of_coffee = coffee_resources["cost"]
+if enough_resources == True:
+    coins = input(f"Please insert coins. A {coffee_choice} costs ${cost_of_coffee}")
