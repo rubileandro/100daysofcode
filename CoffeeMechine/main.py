@@ -63,7 +63,7 @@ else:
 
 
 
-# TODO 4. Check resources sufficient?
+# TODO 4. Check resources sufficient? ✅
 
 # TODO 4.1 When the user chooses a drink, the program should check if there are enough resources to make that drink.
 
@@ -82,9 +82,26 @@ for i in coffee_resources["ingredients"]:
 
 
 
-# TODO 5. Process coins.
+# TODO 5. Process coins. ✅
 
 # TODO 5.1 If there are sufficient resources to make the drink selected, then the program should prompt the user to insert coins.
 cost_of_coffee = coffee_resources["cost"]
 if enough_resources == True:
     coins = input(f"Please insert coins. A {coffee_choice} costs ${cost_of_coffee}")
+
+
+
+# TODO 5.2 Remember that quarters = $0.25, dimes = $0.10, nickles = $0.05, pennies = $0.01
+
+quarters = 0.25
+dimes = 0.10
+nickles = 0.05
+pennies = 0.01
+
+quarters_value = int(input("How many quarters?")) * 0.25
+dime_value = int(input("How many dimes?")) * 0.10
+nickles_value = int(input("how many nickles?")) * 0.05
+pennies_value = int(input("how many pennies?")) * 0.01
+
+coins_inserted = quarters_value + dime_value + nickles_value + pennies_value
+print(coins_inserted)
