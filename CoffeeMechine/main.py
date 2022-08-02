@@ -34,16 +34,19 @@ revenue = 0
 
 
 def report():
-    """Prints coffee mechine resources"""
+    """Prints coffee machine resources and current revenue"""
     print("Coffee resources : ")
-    for i in resources:
-        print(i, resources[i])
-    print(revenue)
-
+    # for i in resources:
+    #     print(i, resources[i])
+    # print(f"Revenue: {round(revenue, 2)}")
+    print(f"Water: {resources['water']}ml")
+    print(f"Milk: {resources['milk']}ml")
+    print(f"Coffee: {resources['coffee']}g")
+    print(f"Money: ${revenue}")
 
 enough_resources = True
 def check_resources():
-    """Checks whether resources are sufficient to make cofffee"""
+    """Checks whether resources are sufficient to make coffee"""
     coffee_resources = (MENU[coffee_choice])
     # print(coffee_resources)
     for i in coffee_resources["ingredients"]:
@@ -80,12 +83,13 @@ def run_machine():
         enough_money = False
         print("Sorry that's not enough money. Money refunded.")
     else:
-        refund = coins_inserted - cost_of_coffee
+        refund = round(coins_inserted - cost_of_coffee, 2)
         print(f"Here is ${refund} dollars in change.")
         print("Making your coffee.")
         make_coffee()
-        #revenue += cost_of_coffee
-        print(resources)
+        global revenue
+        revenue += cost_of_coffee
+        # print(resources)
         print(f"Here is your {coffee_choice}. Enjoy!")
 
 
